@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Chresia's Accountancy Study Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tulip Background Canvas -->
+    <canvas id="tulipsCanvas"></canvas>
+    
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-card">
+            <div class="tulips-header">
+                <h1>🌸 Chresia Talagon</h1>
+                <h2>Accountancy Study Hub</h2>
+            </div>
+            <form id="loginForm">
+                <input type="password" id="loginPassword" placeholder="✨ Enter your secret code" maxlength="8">
+                <button type="submit">🌷 Enter Study World</button>
+            </form>
+            <p class="hint">💡 Hint: Your birth year + favorite number</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard (Hidden until login) -->
+    <div id="mainApp" class="app-hidden">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <h1>🌸 Chresia's Accountancy Empire</h1>
+                <p class="subtitle">Complete CPA Journey • Year 1-4 + Board Exam Prep</p>
+                <div class="motivation-section">
+                    <div id="motivationalQuote" class="quote-box">
+                        <p>"Chresia, you're not just studying numbers - you're building your millionaire future! 💰✨"</p>
+                        <span>🌟 Talagon Family Pride 🌟</span>
+                    </div>
+                    <button onclick="getNewQuote()" class="new-quote-btn">💖 New Inspiration</button>
+                    <button onclick="logout()" class="logout-btn">🚪 Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <ul>
+                    <li><a href="#year1" class="nav-link active">📚 Year 1</a></li>
+                    <li><a href="#year2" class="nav-link">📈 Year 2</a></li>
+                    <li><a href="#year3" class="nav-link">💼 Year 3</a></li>
+                    <li><a href="#year4" class="nav-link">🎯 Year 4</a></li>
+                    <li><a href="#cpa" class="nav-link">🏆 CPA Review</a></li>
+                    <li><a href="#problems" class="nav-link">🧮 1000+ Problems</a></li>
+                    <li><a href="#quiz" class="nav-link">❓ Smart Quiz</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- COMPLETE CONTENT SECTIONS -->
+        <main class="container">
+            <!-- YEAR 1: Fundamentals -->
+            <section id="year1" class="section year-section">
+                <h2>📚 Year 1: Accounting Fundamentals</h2>
+                <div class="topics-grid">
+                    <div class="topic-card pink" onclick="showDetailedContent('fundamentals')">
+                        <h3>Financial Accounting 1</h3>
+                        <p>DR/CR • Journals • Ledgers • Trial Balance • Financial Statements</p>
+                    </div>
+                    <div class="topic-card pink" onclick="showDetailedContent('partnership')">
+                        <h3>Partnership Accounting</h3>
+                        <p>Formation • Profits/Losses • Admission • Withdrawal • Liquidation</p>
+                    </div>
+                    <div class="topic-card pink" onclick="showDetailedContent('merchandising')">
+                        <h3>Merchandising</h3>
+                        <p>Perpetual/Periodic • Inventory • Purchases/Sales</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- YEAR 2: Intermediate -->
+            <section id="year2" class="section year-section">
+                <h2>📈 Year 2: Intermediate Accounting</h2>
+                <div class="topics-grid">
+                    <div class="topic-card purple" onclick="showDetailedContent('cash')">
+                        <h3>Cash & Receivables</h3>
+                        <p>Bank Recon • Notes • AR Valuation • NRV</p>
+                    </div>
+                    <div class="topic-card purple" onclick="showDetailedContent('inventory')">
+                        <h3>Inventory Valuation</h3>
+                        <p>Perpetual/FIFO/LIFO/Weighted Avg • LCM</p>
+                    </div>
+                    <div class="topic-card purple" onclick="showDetailedContent('ppt')">
+                        <h3>PP&E</h3>
+                        <p>Straight-line • Declining • Units-of-production</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- YEAR 3: Advanced -->
+            <section id="year3" class="section year-section">
+                <h2>💼 Year 3: Advanced Accounting</h2>
+                <div class="topics-grid">
+                    <div class="topic-card blue" onclick="showDetailedContent('business-combination')">
+                        <h3>Business Combinations</h3>
+                        <p>Mergers • Acquisitions • Consolidation</p>
+                    </div>
+                    <div class="topic-card blue" onclick="showDetailedContent('investments')">
+                        <h3>Investments</h3>
+                        <p>FVTPL • FVTOCI • Amortized Cost</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YEAR 4: Management + Tax -->
+            <section id="year4" class="section year-section">
+                <h2>🎯 Year 4: Management & Tax</h2>
+                <div class="topics-grid">
+                    <div class="topic-card green" onclick="showDetailedContent('cost-accounting')">
+                        <h3>Cost Accounting</h3>
+                        <p>Job Order • Process Costing • ABC • Standard Costing</p>
+                    </div>
+                    <div class="topic-card green" onclick="showDetailedContent('taxation')">
+                        <h3>Taxation</h3>
+                        <p>Income Tax • VAT • Corporate Tax • BIR Forms</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CPA Review -->
+            <section id="cpa" class="section year-section">
+                <h2>🏆 CPA Board Exam Review</h2>
+                <div class="topics-grid">
+                    <div class="topic-card gold" onclick="showDetailedContent('auditing-theory')">
+                        <h3>Auditing Theory</h3>
+                        <p>Philippine Standards • Risk Assessment • Audit Reports</p>
+                    </div>
+                    <div class="topic-card gold" onclick="showDetailedContent('practical-accounting')">
+                        <h3>Practical Accounting</h3>
+                        <p>Advanced Problems • Case Studies • Simulations</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problems & Quiz -->
+            <section id="problems" class="section">
+                <h2>🧮 1000+ Practice Problems</h2>
+                <div class="problem-categories">
+                    <button class="problem-btn pink" onclick="loadProblems('year1')">Year 1 Problems</button>
+                    <button class="problem-btn purple" onclick="loadProblems('year2')">Year 2 Problems</button>
+                    <button class="problem-btn blue" onclick="loadProblems('cpa')">CPA Problems</button>
+                </div>
+                <div id="problemsContainer"></div>
+            </section>
+
+            <section id="quiz" class="section">
+                <h2>❓ Adaptive Quiz System</h2>
+                <button onclick="startFullQuiz()" class="quiz-start-btn">🚀 Start CPA-Level Quiz</button>
+                <div id="quizContainer"></div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>🌸 Made with ❤️ for Chresia Talagon | Complete Accountancy Journey | 100% Offline 🌸</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
